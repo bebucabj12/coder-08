@@ -1,7 +1,7 @@
 import {AuthSession} from 'expo';
 import * as SecureStore from 'expo-secure-store';
 
-const SPOTIFY_CLIENT_ID = 'bb223824c29844c7999ac5bc0ab7fdff';
+const SPOTIFY_CLIENT_ID = '02f9a99547f24c73b7681bab5b03aa16';
 const SECURE_STORE_ACCESS_TOKEN_KEY = 'spotifyAccessToken';
 
 let token;
@@ -13,7 +13,8 @@ SecureStore.getItemAsync (SECURE_STORE_ACCESS_TOKEN_KEY).then (accessToken => {
 export const authorize = () => {
   console.warn ('AUTH!');
   const redirectUrl = AuthSession.getRedirectUrl ();
-
+  
+console.log(redirectUrl);
   return AuthSession.startAsync ({
     authUrl: `https://accounts.spotify.com/authorize?response_type=token` +
       `&client_id=${SPOTIFY_CLIENT_ID}` +
